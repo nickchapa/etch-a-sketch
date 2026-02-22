@@ -1,0 +1,8 @@
+.sketchDiv {
+    display: flex;
+    flex-wrap: wrap;
+}
+.sketchDiv div {
+    border: solid 2px black;
+    height: 200px;
+}
