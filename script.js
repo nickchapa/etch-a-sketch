@@ -3,13 +3,19 @@ const sketchDiv = document.querySelector(".sketchDiv");
 // for loop to create multiple divs
 // create an array of divs?
 let divArray = [];
-divArray.push(document.createElement("div"));
-divArray[0].textContent = "This div is in an array.";
-sketchDiv.appendChild(divArray[0]);
+const gridSize = 16;
 
-for(i = 0; i < 16; i++){
-    divArray.push(document.createElement("div"));
-    divArray[i].textContent = `This is div ${i}`;
-    sketchDiv.appendChild(divArray[i]);
-    console.log(i);
+for(i = 0; i < gridSize; i++){
+    divArray[i] = [];
+    //console.log(divArray);
+
+    for(j = 0; j < gridSize; j++){
+        divArray[i].push(document.createElement("div"));
+        sketchDiv.appendChild(divArray[i][j]);
+    }
 }
+
+// next step: change color on mouse hover
+
+// for part 4
+// calculate sketchDiv CSS width and height based on gridSize
