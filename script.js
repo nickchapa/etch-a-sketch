@@ -16,6 +16,9 @@ for(i = 0; i < gridSize; i++){
 }
 
 // next step: change color on mouse hover
+sketchDiv.addEventListener("mouseover", (e) => {
+    e.target.style.backgroundColor = "blue";
+})
 
 // for part 4
 // calculate sketchDiv CSS width and height based on gridSize
