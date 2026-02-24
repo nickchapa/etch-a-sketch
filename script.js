@@ -19,6 +19,15 @@ function newGrid(){
 
 newGrid();
 
+// remove old grid
+function deleteGrid(){
+    for(i = 0; i < gridSize; i++){
+        for(j = 0; j < gridSize; j++){
+            divArray[i][j].remove();
+        }
+    }
+}
+
 // next step: change color on mouse hover
 sketchDiv.addEventListener("mouseover", (e) => {
     e.target.style.backgroundColor = "blue";
@@ -33,11 +42,10 @@ sketchDiv.addEventListener("mouseover", (e) => {
 // generate new grid in same container using user input number
 // max of 100
 
-/*
+
 const resetBtn = document.querySelector(".resetBtn");
 
 resetBtn.addEventListener("click", (e) => {
-    sketchDiv.remove(divArray);
+    deleteGrid();
     newGrid();
 });
-*/
