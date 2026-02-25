@@ -1,7 +1,7 @@
 const sketchDiv = document.querySelector(".sketchDiv");
 
 let divArray = [];
-const gridSize = 16;
+let gridSize = 16;
 
 function newGrid(){
     for(i = 0; i < gridSize; i++){
@@ -24,6 +24,19 @@ function deleteGrid(){
     }
 }
 
+function setGridSize(){
+    gridSize = prompt("Input number for new grid size:");
+   
+   if(gridSize < 16 || gridSize > 100 || isNaN(gridSize)){
+        alert("Invalid input. Defaulting to 16.");
+        gridSize = 16;
+   }
+    
+    
+    console.log(gridSize);
+    //console.log(typeof +gridSize == "number");
+}
+
 sketchDiv.addEventListener("mouseover", (e) => {
     e.target.style.backgroundColor = "blue";
 })
@@ -32,5 +45,6 @@ const resetBtn = document.querySelector(".resetBtn");
 
 resetBtn.addEventListener("click", (e) => {
     deleteGrid();
+    setGridSize();
     newGrid();
 });
