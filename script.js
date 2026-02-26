@@ -62,6 +62,20 @@ sketchDiv.addEventListener("mouseover", (e) => {
         currentOpacity += 0.25;
         e.target.style.opacity = currentOpacity;
     }
+    // if opacity = 1, add target to progress array if not already in there
+    // if progress array = 
+
+    // check fill progress
+    let opacityCheck = 0;
+    for(i = 0; i < gridSize; i++){
+        for(j = 0; j < gridSize; j++)
+            if(divArray[i][j].style.opacity == 1){
+                opacityCheck += 1;
+            }
+    }
+    if(opacityCheck == (gridSize * gridSize)){
+        alert("Complete!");
+    }
 })
 
 const resetBtn = document.querySelector(".resetBtn");
