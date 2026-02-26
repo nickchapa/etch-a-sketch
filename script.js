@@ -42,8 +42,20 @@ function setGridSize(){
     //console.log(typeof +gridSize == "number");
 }
 
+// function set random color
+function randomColor(){
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    let a = Math.random();
+
+    return `rgb(${r}, ${g}, ${b}, ${a})`
+}
+
+randomColor();
+
 sketchDiv.addEventListener("mouseover", (e) => {
-    e.target.style.backgroundColor = "blue";
+    e.target.style.backgroundColor = randomColor();
 })
 
 const resetBtn = document.querySelector(".resetBtn");
