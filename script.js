@@ -3,7 +3,7 @@ const containerSize = 800;
 sketchDiv.style.width = containerSize.toString() + "px";
 
 let divArray = [];
-let gridSize = 16;
+let gridSize = 10;
 
 function newGrid(){
     for(i = 0; i < gridSize; i++){
@@ -32,9 +32,9 @@ function deleteGrid(){
 function setGridSize(){
     gridSize = prompt("Input number for new grid size:");
    
-   if(gridSize < 16 || gridSize > 100 || isNaN(gridSize)){
-        alert("Invalid input. Defaulting to 16.");
-        gridSize = 16;
+   if(gridSize < 4 || gridSize > 100 || isNaN(gridSize)){
+        alert("Invalid input. Defaulting to 10.");
+        gridSize = 10;
    }
     
     
