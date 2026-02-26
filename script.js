@@ -1,4 +1,6 @@
 const sketchDiv = document.querySelector(".sketchDiv");
+const containerSize = 800;
+sketchDiv.style.width = containerSize.toString() + "px";
 
 let divArray = [];
 let gridSize = 16;
@@ -6,10 +8,13 @@ let gridSize = 16;
 function newGrid(){
     for(i = 0; i < gridSize; i++){
     divArray[i] = [];
+    let cellSize = containerSize / gridSize;
 
     for(j = 0; j < gridSize; j++){
         divArray[i].push(document.createElement("div"));
         sketchDiv.appendChild(divArray[i][j]);
+        divArray[i][j].style.width = cellSize.toString() + "px";
+        divArray[i][j].style.height = cellSize.toString() + "px";
         }
     }
 }
