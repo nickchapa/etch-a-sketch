@@ -81,6 +81,7 @@ sketchDiv.addEventListener("mouseover", (e) => {
     }
     if(opacityCheck == (gridSize * gridSize)){
         alert("Complete!");
+        newSketch();
     }
 })
 
