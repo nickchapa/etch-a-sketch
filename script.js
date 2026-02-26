@@ -42,6 +42,12 @@ function setGridSize(){
     //console.log(typeof +gridSize == "number");
 }
 
+function newSketch(){
+    deleteGrid();
+    setGridSize();
+    newGrid();
+}
+
 // function set random color
 function randomColor(){
     let r = Math.floor(Math.random() * 256);
@@ -81,7 +87,5 @@ sketchDiv.addEventListener("mouseover", (e) => {
 const resetBtn = document.querySelector(".resetBtn");
 
 resetBtn.addEventListener("click", (e) => {
-    deleteGrid();
-    setGridSize();
-    newGrid();
+    newSketch();
 });
