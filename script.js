@@ -55,7 +55,9 @@ function randomColor(){
 randomColor();
 
 sketchDiv.addEventListener("mouseover", (e) => {
-    e.target.style.backgroundColor = randomColor();
+    if(e.target.style.backgroundColor == ""){
+        e.target.style.backgroundColor = randomColor();
+    }
 })
 
 const resetBtn = document.querySelector(".resetBtn");
