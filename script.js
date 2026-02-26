@@ -47,9 +47,8 @@ function randomColor(){
     let r = Math.floor(Math.random() * 256);
     let g = Math.floor(Math.random() * 256);
     let b = Math.floor(Math.random() * 256);
-    let a = Math.random();
 
-    return `rgb(${r}, ${g}, ${b}, ${a})`
+    return `rgb(${r}, ${g}, ${b})`
 }
 
 randomColor();
@@ -57,6 +56,11 @@ randomColor();
 sketchDiv.addEventListener("mouseover", (e) => {
     if(e.target.style.backgroundColor == ""){
         e.target.style.backgroundColor = randomColor();
+    }
+    if(e.target.style.opacity < 1){
+        let currentOpacity = +e.target.style.opacity;
+        currentOpacity += 0.25;
+        e.target.style.opacity = currentOpacity;
     }
 })
 
