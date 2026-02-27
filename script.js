@@ -2,9 +2,11 @@ const body = document.querySelector("body");
 const sketchDiv = document.querySelector(".sketchDiv");
 const containerSize = 800;
 sketchDiv.style.width = containerSize.toString() + "px";
+const progressDiv = document.querySelector(".progress");
 
 let divArray = [];
 let gridSize = 10;
+let progressValue = 0;
 
 function newGrid(){
     for(i = 0; i < gridSize; i++){
@@ -18,6 +20,8 @@ function newGrid(){
         divArray[i][j].style.height = cellSize.toString() + "px";
         }
     }
+
+    progressDiv.textContent = `Completion: 0 / ${gridSize * gridSize}`;
 }
 
 newGrid();
@@ -80,6 +84,12 @@ sketchDiv.addEventListener("mouseover", (e) => {
                 opacityCheck += 1;
             }
     }
+
+    if(opacityCheck != progressValue){
+        progressValue = opacityCheck;
+        progressDiv.textContent = `Completion: ${progressValue} / ${gridSize * gridSize}`;
+    }
+
     if(opacityCheck == (gridSize * gridSize)){
         alert("Complete!");
         newSketch();
@@ -91,6 +101,8 @@ sketchDiv.addEventListener("mouseover", (e) => {
         body.append(secretBtn);
     }
 })
+
+
 
 const resetBtn = document.querySelector(".resetBtn");
 
