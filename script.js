@@ -2,9 +2,12 @@ const body = document.querySelector("body");
 const sketchDiv = document.querySelector(".sketchDiv");
 const containerSize = 800;
 sketchDiv.style.width = containerSize.toString() + "px";
+const progressDiv = document.querySelector(".progress");
 
 let divArray = [];
 let gridSize = 10;
+let fullGridSize = gridSize * gridSize;
+let progressValue = 0;
 
 function newGrid(){
     for(i = 0; i < gridSize; i++){
@@ -18,6 +21,8 @@ function newGrid(){
         divArray[i][j].style.height = cellSize.toString() + "px";
         }
     }
+
+    progressDiv.textContent = `Completion: 0 / ${gridSize * gridSize}`;
 }
 
 newGrid();
@@ -38,7 +43,8 @@ function setGridSize(){
         gridSize = 10;
    }
     
-    
+    fullGridSize = gridSize * gridSize;
+    console.log(`fullGridSize: ${fullGridSize}`);
     console.log(gridSize);
     //console.log(typeof +gridSize == "number");
 }
@@ -80,7 +86,17 @@ sketchDiv.addEventListener("mouseover", (e) => {
                 opacityCheck += 1;
             }
     }
-    if(opacityCheck == (gridSize * gridSize)){
+
+    if(opacityCheck != progressValue){
+        progressValue = opacityCheck;
+        progressDiv.textContent = `Completion: ${progressValue} / ${fullGridSize}`;
+    }
+
+    let completionPercent = Math.round((progressValue / fullGridSize) * 100) + "%";
+
+    progressDiv.style.background = `linear-gradient(to right, green ${completionPercent}, white ${completionPercent})`;
+
+    if(progressValue == (fullGridSize)){
         alert("Complete!");
         newSketch();
         const secretBtn = document.createElement("button");
@@ -91,6 +107,8 @@ sketchDiv.addEventListener("mouseover", (e) => {
         body.append(secretBtn);
     }
 })
+
+
 
 const resetBtn = document.querySelector(".resetBtn");
 
