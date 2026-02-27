@@ -92,6 +92,10 @@ sketchDiv.addEventListener("mouseover", (e) => {
         progressDiv.textContent = `Completion: ${progressValue} / ${fullGridSize}`;
     }
 
+    let completionPercent = Math.round((progressValue / fullGridSize) * 100) + "%";
+
+    progressDiv.style.background = `linear-gradient(to right, green ${completionPercent}, white ${completionPercent})`;
+
     if(progressValue == (fullGridSize)){
         alert("Complete!");
         newSketch();
