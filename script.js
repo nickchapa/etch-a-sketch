@@ -1,3 +1,4 @@
+const body = document.querySelector("body");
 const sketchDiv = document.querySelector(".sketchDiv");
 const containerSize = 800;
 sketchDiv.style.width = containerSize.toString() + "px";
@@ -82,6 +83,12 @@ sketchDiv.addEventListener("mouseover", (e) => {
     if(opacityCheck == (gridSize * gridSize)){
         alert("Complete!");
         newSketch();
+        const secretBtn = document.createElement("button");
+        secretBtn.textContent = "secret";
+        secretBtn.addEventListener("click", (e) => {
+            alert("secret activated!");
+        })
+        body.append(secretBtn);
     }
 })
 
