@@ -6,6 +6,7 @@ const progressDiv = document.querySelector(".progress");
 
 let divArray = [];
 let gridSize = 10;
+let fullGridSize = gridSize * gridSize;
 let progressValue = 0;
 
 function newGrid(){
@@ -42,7 +43,8 @@ function setGridSize(){
         gridSize = 10;
    }
     
-    
+    fullGridSize = gridSize * gridSize;
+    console.log(`fullGridSize: ${fullGridSize}`);
     console.log(gridSize);
     //console.log(typeof +gridSize == "number");
 }
@@ -87,10 +89,10 @@ sketchDiv.addEventListener("mouseover", (e) => {
 
     if(opacityCheck != progressValue){
         progressValue = opacityCheck;
-        progressDiv.textContent = `Completion: ${progressValue} / ${gridSize * gridSize}`;
+        progressDiv.textContent = `Completion: ${progressValue} / ${fullGridSize}`;
     }
 
-    if(opacityCheck == (gridSize * gridSize)){
+    if(progressValue == (fullGridSize)){
         alert("Complete!");
         newSketch();
         const secretBtn = document.createElement("button");
