@@ -126,6 +126,11 @@ sketchDiv.addEventListener("mouseover", (e) => {
     if(inputType == "mouseover"){
         eventTriggered(e);
     }
+    e.target.style.border = "solid 2px red";
+})
+
+sketchDiv.addEventListener("mouseout", (e) => {
+    e.target.style.border = "none";
 })
 
 sketchDiv.addEventListener("click", (e) => {
