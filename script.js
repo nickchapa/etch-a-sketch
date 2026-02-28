@@ -99,7 +99,6 @@ sketchDiv.addEventListener("mouseover", (e) => {
     progressDiv.style.background = `linear-gradient(to right, green ${completionPercent}, white ${completionPercent})`;
 
     if(progressValue == (fullGridSize)){
-        alert("Complete!");
         newSketch();
         const secretBtn = document.createElement("button");
         secretBtn.textContent = "secret";
