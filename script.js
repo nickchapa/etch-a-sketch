@@ -98,6 +98,7 @@ function eventTriggered(e){
         for(j = 0; j < gridSize; j++)
             if(divArray[i][j].style.opacity == 1){
                 opacityCheck += 1;
+                divArray[i][j].style.border = "solid 2px black";
             }
     }
 
@@ -125,6 +126,13 @@ sketchDiv.addEventListener("mouseover", (e) => {
     if(inputType == "mouseover"){
         eventTriggered(e);
     }
+    e.target.style.border = "solid 2px red";
+})
+
+sketchDiv.addEventListener("mouseout", (e) => {
+    if(e.target.style.opacity == 1){
+        e.target.style.border = "solid 2px black";
+    } else e.target.style.border = "none";
 })
 
 sketchDiv.addEventListener("click", (e) => {
