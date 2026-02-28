@@ -98,6 +98,7 @@ function eventTriggered(e){
         for(j = 0; j < gridSize; j++)
             if(divArray[i][j].style.opacity == 1){
                 opacityCheck += 1;
+                divArray[i][j].style.border = "solid 2px black";
             }
     }
 
