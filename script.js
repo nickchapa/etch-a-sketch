@@ -4,11 +4,17 @@ const containerSize = 800;
 sketchDiv.style.width = containerSize.toString() + "px";
 const progressDiv = document.querySelector(".progress");
 
+const difficultyDiv = document.getElementById("difficultyDiv");
+const easyBtn = document.getElementById("easyBtn");
+const mediumBtn = document.getElementById("mediumBtn");
+const hardBtn = document.getElementById("hardBtn");
+
 let divArray = [];
 let gridSize = 10;
 let fullGridSize = gridSize * gridSize;
 let progressValue = 0;
 let inputType = "mouseover";
+let difficultyValue = 1;
 
 function newGrid(){
     for(i = 0; i < gridSize; i++){
@@ -75,7 +81,7 @@ function eventTriggered(e){
     }
     if(e.target.style.opacity < 1){
         let currentOpacity = +e.target.style.opacity;
-        currentOpacity += 0.25;
+        currentOpacity += difficultyValue;
         e.target.style.opacity = currentOpacity;
     }
     // if opacity = 1, add target to progress array if not already in there
@@ -140,3 +146,16 @@ const resetBtn = document.querySelector(".resetBtn");
 resetBtn.addEventListener("click", (e) => {
     newSketch();
 });
+
+
+difficultyDiv.addEventListener("click", (e) => {
+    if(e.target == easyBtn){
+        difficultyValue = 1;
+    }
+    if(e.target == mediumBtn){
+        difficultyValue = 0.5;
+    }
+    if(e.target == hardBtn){
+        difficultyValue = 0.25;
+    }
+})
