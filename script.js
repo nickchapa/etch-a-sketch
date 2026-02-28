@@ -8,6 +8,7 @@ let divArray = [];
 let gridSize = 10;
 let fullGridSize = gridSize * gridSize;
 let progressValue = 0;
+let inputType = "mouseover";
 
 function newGrid(){
     for(i = 0; i < gridSize; i++){
@@ -68,7 +69,7 @@ function randomColor(){
 
 randomColor();
 
-sketchDiv.addEventListener("mouseover", (e) => {
+function eventTriggered(e){
     if(e.target.style.backgroundColor == ""){
         e.target.style.backgroundColor = randomColor();
     }
@@ -107,9 +108,32 @@ sketchDiv.addEventListener("mouseover", (e) => {
         })
         body.append(secretBtn);
     }
+}
+
+sketchDiv.addEventListener("mouseover", (e) => {
+    if(inputType == "mouseover"){
+        eventTriggered(e);
+    }
 })
 
+sketchDiv.addEventListener("click", (e) => {
+    if(inputType == "click"){
+        eventTriggered(e);
+    }
+})
 
+const inputTypeBtn = document.querySelector(".inputTypeBtn");
+
+inputTypeBtn.addEventListener("click", (e) => {
+    if(inputType == "mouseover"){
+        inputType = "click";
+        inputTypeBtn.textContent = "Switch to Hover";
+    }
+    else if(inputType == "click"){
+        inputType = "mouseover";
+        inputTypeBtn.textContent = "Switch to Click";
+    }
+})
 
 const resetBtn = document.querySelector(".resetBtn");
 
