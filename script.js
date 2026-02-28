@@ -36,7 +36,9 @@ function deleteGrid(){
 }
 
 function setGridSize(){
-    gridSize = prompt("Input number for new grid size:");
+    let gridsizeInput = document.getElementById("gridsize-input");
+
+    gridSize = gridsizeInput.value;
    
    if(gridSize < 4 || gridSize > 100 || isNaN(gridSize)){
         alert("Invalid input. Defaulting to 10.");
@@ -97,7 +99,6 @@ sketchDiv.addEventListener("mouseover", (e) => {
     progressDiv.style.background = `linear-gradient(to right, green ${completionPercent}, white ${completionPercent})`;
 
     if(progressValue == (fullGridSize)){
-        alert("Complete!");
         newSketch();
         const secretBtn = document.createElement("button");
         secretBtn.textContent = "secret";
