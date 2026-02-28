@@ -9,6 +9,8 @@ const easyBtn = document.getElementById("easyBtn");
 const mediumBtn = document.getElementById("mediumBtn");
 const hardBtn = document.getElementById("hardBtn");
 
+easyBtn.style.backgroundColor = "green";
+
 let divArray = [];
 let gridSize = 10;
 let fullGridSize = gridSize * gridSize;
@@ -154,11 +156,20 @@ resetBtn.addEventListener("click", (e) => {
 difficultyDiv.addEventListener("click", (e) => {
     if(e.target == easyBtn){
         difficultyValue = 1;
+        easyBtn.style.backgroundColor = "green";
+        mediumBtn.style.backgroundColor = "";
+        hardBtn.style.backgroundColor = "";
     }
     if(e.target == mediumBtn){
         difficultyValue = 0.5;
+        easyBtn.style.backgroundColor = "";
+        mediumBtn.style.backgroundColor = "yellow";
+        hardBtn.style.backgroundColor = "";
     }
     if(e.target == hardBtn){
         difficultyValue = 0.25;
+        easyBtn.style.backgroundColor = "";
+        mediumBtn.style.backgroundColor = "";
+        hardBtn.style.backgroundColor = "red";
     }
 })
