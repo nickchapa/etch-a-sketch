@@ -82,6 +82,9 @@ function eventTriggered(e){
     if(e.target.style.opacity < 1){
         let currentOpacity = +e.target.style.opacity;
         currentOpacity += difficultyValue;
+        if (currentOpacity > 1){
+            currentOpacity = 1;
+        }
         e.target.style.opacity = currentOpacity;
     }
     // if opacity = 1, add target to progress array if not already in there
