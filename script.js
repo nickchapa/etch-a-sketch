@@ -130,7 +130,9 @@ sketchDiv.addEventListener("mouseover", (e) => {
 })
 
 sketchDiv.addEventListener("mouseout", (e) => {
-    e.target.style.border = "none";
+    if(e.target.style.opacity == 1){
+        e.target.style.border = "solid 2px black";
+    } else e.target.style.border = "none";
 })
 
 sketchDiv.addEventListener("click", (e) => {
