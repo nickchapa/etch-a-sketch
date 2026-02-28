@@ -8,6 +8,7 @@ let divArray = [];
 let gridSize = 10;
 let fullGridSize = gridSize * gridSize;
 let progressValue = 0;
+let inputType = "mouseover";
 
 function newGrid(){
     for(i = 0; i < gridSize; i++){
@@ -110,6 +111,18 @@ function eventTriggered(e){
 })
 
 
+const inputTypeBtn = document.querySelector(".inputTypeBtn");
+
+inputTypeBtn.addEventListener("click", (e) => {
+    if(inputType == "mouseover"){
+        inputType = "click";
+        inputTypeBtn.textContent = "Switch to Hover";
+    }
+    else if(inputType == "click"){
+        inputType = "mouseover";
+        inputTypeBtn.textContent = "Switch to Click";
+    }
+})
 
 const resetBtn = document.querySelector(".resetBtn");
 
