@@ -108,8 +108,19 @@ function eventTriggered(e){
         })
         body.append(secretBtn);
     }
+}
+
+sketchDiv.addEventListener("mouseover", (e) => {
+    if(inputType == "mouseover"){
+        eventTriggered(e);
+    }
 })
 
+sketchDiv.addEventListener("click", (e) => {
+    if(inputType == "click"){
+        eventTriggered(e);
+    }
+})
 
 const inputTypeBtn = document.querySelector(".inputTypeBtn");
 
