@@ -68,7 +68,7 @@ function randomColor(){
 
 randomColor();
 
-sketchDiv.addEventListener("mouseover", (e) => {
+function eventTriggered(e){
     if(e.target.style.backgroundColor == ""){
         e.target.style.backgroundColor = randomColor();
     }
