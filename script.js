@@ -5,6 +5,8 @@ sketchDiv.style.width = containerSize.toString() + "px";
 const progressDiv = document.querySelector(".progress");
 
 const difficultyDiv = document.getElementById("difficultyDiv");
+const difficultyBtns = document.querySelectorAll(".difficultyBtn");
+
 const easyBtn = document.getElementById("easyBtn");
 const mediumBtn = document.getElementById("mediumBtn");
 const hardBtn = document.getElementById("hardBtn");
@@ -162,10 +164,12 @@ inputTypeBtn.addEventListener("click", (e) => {
     if(inputType == "mouseover"){
         inputType = "click";
         inputTypeBtn.textContent = "Switch to Hover";
+        difficultyBtns.forEach(element => element.disabled = true);
     }
     else if(inputType == "click"){
         inputType = "mouseover";
         inputTypeBtn.textContent = "Switch to Click";
+        difficultyBtns.forEach(element => element.disabled = false);
     }
 })
 
