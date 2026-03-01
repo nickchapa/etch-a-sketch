@@ -183,6 +183,7 @@ const resetBtn = document.querySelector(".resetBtn");
 resetBtn.addEventListener("click", (e) => {
     isComplete = false;
     newSketch();
+    difficultyBtns.forEach(element => element.disabled = false);
 });
 
 
