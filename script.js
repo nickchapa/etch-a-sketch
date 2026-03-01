@@ -183,6 +183,7 @@ resetBtn.addEventListener("click", (e) => {
     isComplete = false;
     newSketch();
     difficultyBtns.forEach(element => element.disabled = false);
+    secretBtn.remove();
 });
 
 
