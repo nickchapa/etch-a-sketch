@@ -36,9 +36,13 @@ function newGrid(){
         sketchDiv.appendChild(divArray[i][j]);
         divArray[i][j].style.width = cellSize.toString() + "px";
         divArray[i][j].style.height = cellSize.toString() + "px";
-        if(inputType = "click"){
+        if(inputType == "click"){
             divArray[i][j].style.border = "solid 2px black";
             divArray[i][j].style.opacity = 1;
+        }
+        if(inputType == "mouseover"){
+            divArray[i][j].style.border = "";
+            divArray[i][j].style.opacity = 0;
         }
         }
     }
