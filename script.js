@@ -153,10 +153,7 @@ sketchDiv.addEventListener("mouseout", (e) => {
     }
 
     if(inputType == "click"){
-        if(e.target.style.backgroundColor == ""){
-            e.target.style.border = "none";
-            e.target.style.opacity = 0;
-        } else e.target.style.border = "solid 2px black";
+        e.target.style.border = "solid 2px black";
     }
 })
 
