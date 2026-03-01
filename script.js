@@ -5,6 +5,8 @@ sketchDiv.style.width = containerSize.toString() + "px";
 const progressDiv = document.querySelector(".progress");
 
 const difficultyDiv = document.getElementById("difficultyDiv");
+const difficultyBtns = document.querySelectorAll(".difficultyBtn");
+
 const easyBtn = document.getElementById("easyBtn");
 const mediumBtn = document.getElementById("mediumBtn");
 const hardBtn = document.getElementById("hardBtn");
@@ -129,13 +131,25 @@ sketchDiv.addEventListener("mouseover", (e) => {
     if(inputType == "mouseover"){
         eventTriggered(e);
     }
+    if(inputType == "click"){
+        e.target.style.opacity = 1;
+    }
     e.target.style.border = "solid 2px red";
 })
 
 sketchDiv.addEventListener("mouseout", (e) => {
-    if(e.target.style.opacity == 1){
-        e.target.style.border = "solid 2px black";
-    } else e.target.style.border = "none";
+    if(inputType == "mouseover"){
+        if(e.target.style.opacity == 1){
+            e.target.style.border = "solid 2px black";
+        }else e.target.style.border = "none";
+    }
+
+    if(inputType == "click"){
+        if(e.target.style.backgroundColor == ""){
+            e.target.style.border = "none";
+            e.target.style.opacity = 0;
+        } else e.target.style.border = "solid 2px black";
+    }
 })
 
 sketchDiv.addEventListener("click", (e) => {
@@ -150,10 +164,12 @@ inputTypeBtn.addEventListener("click", (e) => {
     if(inputType == "mouseover"){
         inputType = "click";
         inputTypeBtn.textContent = "Switch to Hover";
+        difficultyBtns.forEach(element => element.disabled = true);
     }
     else if(inputType == "click"){
         inputType = "mouseover";
         inputTypeBtn.textContent = "Switch to Click";
+        difficultyBtns.forEach(element => element.disabled = false);
     }
 })
 
