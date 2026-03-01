@@ -114,7 +114,6 @@ function eventTriggered(e){
 
     if(!isComplete){
         if(progressValue == (fullGridSize)){
-            newSketch();
             const secretBtn = document.createElement("button");
             secretBtn.textContent = "secret";
             secretBtn.addEventListener("click", (e) => {
