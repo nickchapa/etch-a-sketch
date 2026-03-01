@@ -20,6 +20,7 @@ let progressValue = 0;
 let inputType = "mouseover";
 let difficultyValue = 1;
 let isComplete = false;
+let isDifficultyEnabled = true;
 
 function newGrid(){
     for(i = 0; i < gridSize; i++){
@@ -125,6 +126,10 @@ function eventTriggered(e){
             isComplete = true;
         }
     }
+
+    if(isDifficultyEnabled){
+        difficultyBtns.forEach(element => element.disabled = true);
+    }
 }
 
 sketchDiv.addEventListener("mouseover", (e) => {
@@ -165,11 +170,11 @@ inputTypeBtn.addEventListener("click", (e) => {
         inputType = "click";
         inputTypeBtn.textContent = "Switch to Hover";
         difficultyBtns.forEach(element => element.disabled = true);
+        isDifficultyEnabled = false;
     }
     else if(inputType == "click"){
         inputType = "mouseover";
         inputTypeBtn.textContent = "Switch to Click";
-        difficultyBtns.forEach(element => element.disabled = false);
     }
 })
 
@@ -178,6 +183,7 @@ const resetBtn = document.querySelector(".resetBtn");
 resetBtn.addEventListener("click", (e) => {
     isComplete = false;
     newSketch();
+    difficultyBtns.forEach(element => element.disabled = false);
 });
 
 
