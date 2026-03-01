@@ -175,7 +175,6 @@ inputTypeBtn.addEventListener("click", (e) => {
     else if(inputType == "click"){
         inputType = "mouseover";
         inputTypeBtn.textContent = "Switch to Click";
-        difficultyBtns.forEach(element => element.disabled = false);
     }
 })
 
