@@ -129,6 +129,7 @@ function eventTriggered(e){
 
     if(!isComplete){
         if(progressValue == (fullGridSize)){
+            alert("Look for the secret button!")
             body.append(secretBtn);
             isComplete = true;
         }
