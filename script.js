@@ -112,7 +112,7 @@ function eventTriggered(e){
     let opacityCheck = 0;
     for(i = 0; i < gridSize; i++){
         for(j = 0; j < gridSize; j++)
-            if(divArray[i][j].style.opacity == 1){
+            if(divArray[i][j].style.opacity == 1 && divArray[i][j].style.backgroundColor != ""){
                 opacityCheck += 1;
                 divArray[i][j].style.border = "solid 2px black";
             }
@@ -180,6 +180,7 @@ inputTypeBtn.addEventListener("click", (e) => {
         inputType = "mouseover";
         inputTypeBtn.textContent = "Switch to Click";
     }
+    newSketch();
 })
 
 const resetBtn = document.querySelector(".resetBtn");
