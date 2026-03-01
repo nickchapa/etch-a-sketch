@@ -13,6 +13,10 @@ const hardBtn = document.getElementById("hardBtn");
 
 easyBtn.style.backgroundColor = "green";
 
+const secretBtn = document.createElement("button");
+secretBtn.setAttribute("id", "secretBtn");
+secretBtn.textContent = "secret";
+
 let divArray = [];
 let gridSize = 10;
 let fullGridSize = gridSize * gridSize;
@@ -117,11 +121,6 @@ function eventTriggered(e){
 
     if(!isComplete){
         if(progressValue == (fullGridSize)){
-            const secretBtn = document.createElement("button");
-            secretBtn.textContent = "secret";
-            secretBtn.addEventListener("click", (e) => {
-            alert("secret activated!");
-            })
             body.append(secretBtn);
             isComplete = true;
         }
@@ -184,6 +183,7 @@ resetBtn.addEventListener("click", (e) => {
     isComplete = false;
     newSketch();
     difficultyBtns.forEach(element => element.disabled = false);
+    secretBtn.remove();
 });
 
 
@@ -206,4 +206,8 @@ difficultyDiv.addEventListener("click", (e) => {
         mediumBtn.style.backgroundColor = "";
         hardBtn.style.backgroundColor = "red";
     }
+})
+
+secretBtn.addEventListener("click", (e) => {
+alert("secret activated!");
 })
