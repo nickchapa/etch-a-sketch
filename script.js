@@ -17,6 +17,7 @@ let fullGridSize = gridSize * gridSize;
 let progressValue = 0;
 let inputType = "mouseover";
 let difficultyValue = 1;
+let isComplete = false;
 
 function newGrid(){
     for(i = 0; i < gridSize; i++){
@@ -111,14 +112,16 @@ function eventTriggered(e){
 
     progressDiv.style.background = `linear-gradient(to right, green ${completionPercent}, white ${completionPercent})`;
 
-    if(progressValue == (fullGridSize)){
-        newSketch();
-        const secretBtn = document.createElement("button");
-        secretBtn.textContent = "secret";
-        secretBtn.addEventListener("click", (e) => {
+    if(!isComplete){
+        if(progressValue == (fullGridSize)){
+            const secretBtn = document.createElement("button");
+            secretBtn.textContent = "secret";
+            secretBtn.addEventListener("click", (e) => {
             alert("secret activated!");
-        })
-        body.append(secretBtn);
+            })
+            body.append(secretBtn);
+            isComplete = true;
+        }
     }
 }
 
@@ -157,6 +160,7 @@ inputTypeBtn.addEventListener("click", (e) => {
 const resetBtn = document.querySelector(".resetBtn");
 
 resetBtn.addEventListener("click", (e) => {
+    isComplete = false;
     newSketch();
 });
 
