@@ -157,9 +157,9 @@ sketchDiv.addEventListener("mouseout", (e) => {
 })
 
 sketchDiv.addEventListener("click", (e) => {
-    if(inputType == "click"){
+    if(inputType == "click" && e.target.style.backgroundColor == ""){
         eventTriggered(e);
-    }
+    }else e.target.style.backgroundColor = "";
 })
 
 const inputTypeBtn = document.querySelector(".inputTypeBtn");
