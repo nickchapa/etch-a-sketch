@@ -129,13 +129,25 @@ sketchDiv.addEventListener("mouseover", (e) => {
     if(inputType == "mouseover"){
         eventTriggered(e);
     }
+    if(inputType == "click"){
+        e.target.style.opacity = 1;
+    }
     e.target.style.border = "solid 2px red";
 })
 
 sketchDiv.addEventListener("mouseout", (e) => {
-    if(e.target.style.opacity == 1){
-        e.target.style.border = "solid 2px black";
-    } else e.target.style.border = "none";
+    if(inputType == "mouseover"){
+        if(e.target.style.opacity == 1){
+            e.target.style.border = "solid 2px black";
+        }else e.target.style.border = "none";
+    }
+
+    if(inputType == "click"){
+        if(e.target.style.backgroundColor == ""){
+            e.target.style.border = "none";
+            e.target.style.opacity = 0;
+        } else e.target.style.border = "solid 2px black";
+    }
 })
 
 sketchDiv.addEventListener("click", (e) => {
