@@ -15,7 +15,7 @@ easyBtn.style.backgroundColor = "green";
 
 const secretBtn = document.createElement("button");
 secretBtn.setAttribute("id", "secretBtn");
-secretBtn.textContent = "secret";
+secretBtn.textContent = "!<3";
 
 let divArray = [];
 let gridSize = 5;
@@ -216,5 +216,5 @@ difficultyDiv.addEventListener("click", (e) => {
 })
 
 secretBtn.addEventListener("click", (e) => {
-alert("secret activated!");
+alert("大好き!");
 })
