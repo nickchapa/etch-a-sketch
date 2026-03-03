@@ -67,7 +67,7 @@ function setGridSize(){
    
    if(gridSize < 4 || gridSize > 100 || isNaN(gridSize)){
         alert("Invalid input. Defaulting to 10.");
-        gridSize = 10;
+        gridSize = 5;
    }
     
     fullGridSize = gridSize * gridSize;
