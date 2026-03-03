@@ -150,6 +150,24 @@ sketchDiv.addEventListener("mouseover", (e) => {
     e.target.style.border = "solid 2px red";
 })
 
+let isDrawing = false;
+
+sketchDiv.addEventListener("pointerdown", (e) => {
+    isDrawing = true;
+})
+
+sketchDiv.addEventListener("pointerup", (e) => {
+    isDrawing = false;
+})
+
+sketchDiv.addEventListener("pointermove", (e) => {
+    if(isDrawing){
+        eventTriggered(e);
+    }
+
+    e.target.style.border = "solid 2px red";
+})
+
 sketchDiv.addEventListener("mouseout", (e) => {
     if(inputType == "mouseover"){
         if(e.target.style.opacity == 1){
