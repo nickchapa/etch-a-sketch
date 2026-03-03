@@ -158,6 +158,7 @@ sketchDiv.addEventListener("pointerdown", (e) => {
 
 sketchDiv.addEventListener("pointerup", (e) => {
     isDrawing = false;
+    sketchDiv.style.backgroundColor = "white";
 })
 
 sketchDiv.addEventListener("pointermove", (e) => {
