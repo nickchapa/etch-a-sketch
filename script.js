@@ -1,6 +1,6 @@
 const body = document.querySelector("body");
 const sketchDiv = document.querySelector(".sketchDiv");
-const containerSize = 800;
+const containerSize = window.innerWidth;
 sketchDiv.style.width = containerSize.toString() + "px";
 const progressDiv = document.querySelector(".progress");
 
