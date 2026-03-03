@@ -18,7 +18,7 @@ secretBtn.setAttribute("id", "secretBtn");
 secretBtn.textContent = "secret";
 
 let divArray = [];
-let gridSize = 10;
+let gridSize = 5;
 let fullGridSize = gridSize * gridSize;
 let progressValue = 0;
 let inputType = "click";
