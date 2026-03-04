@@ -150,6 +150,7 @@ sketchDiv.addEventListener("mouseover", (e) => {
     e.target.style.border = "solid 2px red";
 })
 
+/*
 let isDrawing = false;
 
 sketchDiv.addEventListener("pointerdown", (e) => {
@@ -168,6 +169,7 @@ sketchDiv.addEventListener("pointermove", (e) => {
 
     e.target.style.border = "solid 2px red";
 })
+    */
 
 sketchDiv.addEventListener("mouseout", (e) => {
     if(inputType == "mouseover"){
@@ -180,6 +182,7 @@ sketchDiv.addEventListener("mouseout", (e) => {
         e.target.style.border = "solid 2px black";
     }
 })
+
 
 sketchDiv.addEventListener("click", (e) => {
     if(inputType == "click" && e.target.style.backgroundColor == ""){
